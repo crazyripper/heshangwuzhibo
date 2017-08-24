@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>js中调用App本地方法</title>
+
+    <style>
+        button {
+        height: 36px;
+        width: 100%;
+        background: #98bf21;
+        }
+    </style>
+</head>
+
+<body>
+<p>JS调用Android中的方法</p>
+
+<button onclick="sendVideoUrlToJava()">JS传递给App视频url</button>
+<br/><br/>
+<button onclick="sendUserIDToJava()">JS传递给App UserId</button>
+
+<script>
+            // 1.发送视频url到app
+		    function sendVideoUrlToJava() {
+				//调用android程序中的方法，并传递参数
+				<!--var url = 'video url';-->
+				var url="www.xxxx.xxx.hls";
+				window.AndroidWebView.setVideoUrlFromJs(url);
+			}
+            // 2.
+			function sendUserIDToJava() {
+				//调用android程序中的方法，并传递参数
+				<!--var userId = 'userId';-->
+				var userId="123456789";
+				window.AndroidWebView.showInfoFromJs(userId);
+			}
+             // 3.
+			//在Android代码中调用此方法
+			function showInfoFromApp(msg) {
+				alert("来自App的信息：" + msg);
+			}
+
+
+</script>
+</body>
+
+</html>
